@@ -1,3 +1,4 @@
+
 :root {
   --main-color: #c271ff;
   --opacity-value: 0.9;
@@ -315,123 +316,185 @@
 
 /* POPULAR SECTION  */
 
-.popular {
-  height: auto;
-  background-color: var(--color-white);
+.carousel-videos {
+  padding: 0 16rem !important;
 }
 
-.popular .section-header {
-  padding-top: 87px;
-  padding-bottom: 75px;
-  color: var(--background-color);
-}
-
-.section .card {
-  border: 0;
-  width: 16rem;
-}
-
-.popular .card {
-  padding-bottom: 87px;
-}
-
-.section .card-img-overlay {
-  /* top: 25px; */
-  top: 5%;
-}
-
-.section .card-title {
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--background-color);
-}
-
-.section .card-text {
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.popular .carousel-control-prev,
-.popular .carousel-control-next {
-  width: 60px;
-}
-
-.popular .carousel-control-prev.arrow-left {
-  left: var(--popular-arrows-x);
-}
-
-.popular .carousel-control-next.arrow-right {
-  right: var(--popular-arrows-x);
-}
-
-@media screen and (max-width: 1280px) {
-  :root {
-    --popular-arrows-x: -4vw;
-  }
-
-  .section .card {
-    width: 19vw;
+@media only screen and (max-width: 991px) {
+  .carousel-videos {
+    padding: 0 7rem !important;
   }
 }
 
-@media screen and (max-width: 1150px) {
-  :root {
-    --popular-arrows-x: -3vw;
-  }
-
-  .section .card-img-overlay {
-    /* top: 25px; */
-    top: 4%;
-  }
-
-  .section .card-img-overlay img {
-    width: 35%;
+@media only screen and (max-width: 766px) {
+  .carousel-videos {
+    padding: 0 10rem !important;
   }
 }
 
-@media screen and (max-width: 991px) {
-  :root {
-    --popular-arrows-x: -3vw;
-  }
-
-  .section .card {
-    width: 16rem;
-  }
-
-  .section .card-img-overlay img {
-    width: 30%;
-  }
-
-  .section .card-img-overlay {
-    /* top: 25px; */
-    top: 5%;
+@media only screen and (max-width: 575px) {
+  .carousel-videos {
+    padding: 0 !important;
   }
 }
 
-@media screen and (max-width: 767px) {
-  :root {
-    --popular-arrows-x: -6vw;
-  }
+/*
+    code by Iatek LLC 2018 - CC 2.0 License - Attribution required
+    code customized by Azmind.com
+*/
+@media (min-width: 768px) and (max-width: 991px) {
 
-  .section .card {
-    width: 16rem;
+  /* Show 4th slide on md if col-md-4*/
+  .carouselVideos .carousel-inner .active.col-md-4.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: absolute;
+    top: 0;
+    right: -33.33%;
+    /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
   }
 }
 
-@media screen and (max-width: 575px) {
-  :root {
-    --popular-arrows-x: -15px;
-  }
+@media (min-width: 576px) and (max-width: 767px) {
 
-  .section .card-img-overlay img {
-    width: 30%;
-  }
-
-  .section .card-img-overlay {
-    /* top: 25px; */
-    top: 5%;
+  /* Show 3rd slide on sm if col-sm-6*/
+  .carouselVideos .carousel-inner .active.col-sm-6.carousel-item+.carousel-item+.carousel-item {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
   }
 }
+
+@media (min-width: 576px) {
+  .carouselVideos .carousel-item {
+    margin-right: 0;
+  }
+
+  /* show 2 items */
+  .carouselVideos .carousel-inner .active+.carousel-item {
+    display: block;
+  }
+
+  .carouselVideos .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carouselVideos .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item {
+    transition: none;
+  }
+
+  .carouselVideos .carousel-inner .carousel-item-next {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* left or forward direction */
+  .carouselVideos .active.carousel-item-left+.carousel-item-next.carousel-item-left,
+  .carouselVideos .carousel-item-next.carousel-item-left+.carousel-item,
+  .carouselVideos .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* farthest right hidden item must be also positioned for animations */
+  .carouselVideos .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* right or prev direction */
+  .carouselVideos .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
+  .carouselVideos .carousel-item-prev.carousel-item-right+.carousel-item,
+  .carouselVideos .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+
+/* MD */
+@media (min-width: 768px) {
+
+  /* show 3rd of 3 item slide */
+  .carouselVideos .carousel-inner .active+.carousel-item+.carousel-item {
+    display: block;
+  }
+
+  .carouselVideos .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item {
+    transition: none;
+  }
+
+  .carouselVideos .carousel-inner .carousel-item-next {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* left or forward direction */
+  .carouselVideos .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* right or prev direction */
+  .carouselVideos .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+
+/* LG */
+@media (min-width: 992px) {
+
+  /* show 4th item */
+  .carouselVideos .carousel-inner .active+.carousel-item+.carousel-item+.carousel-item {
+    display: block;
+  }
+
+  .carouselVideos .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item {
+    transition: none;
+  }
+
+  /* Show 5th slide on lg if col-lg-3 */
+  .carouselVideos .carousel-inner .active.col-lg-3.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%;
+    /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* left or forward direction */
+  .carouselVideos .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* right or prev direction //t - previous slide direction last item animation fix */
+  .carouselVideos .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+}
+
 
 /* SMILES Section  */
 
@@ -817,125 +880,38 @@
 
 /* SEARCH SECTION  */
 
-.search {
-  background-color: var(--main-color);
-  height: auto;
+/* Section filters
+   ============================= */
+.section-filters {
+  background: #C271FF;
 }
 
-.search .input-group {
-  height: 48px;
-  border: 0px;
-}
-
-.search .input-group-prepend {
-  margin-right: 0px;
-}
-
-.search .input-group-text {
-  background-color: var(--color-white);
-  border-right: 0;
-  padding-right: 10px;
-  border-style: none;
-  border-radius: 3px 3px 0px 0px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.25);
-
-  color: var(--color-white);
-  font-size: 20px;
-}
-
-.search .form-control.search-text-area {
-  height: 100%;
-  border-style: none;
-  border-radius: 3px 3px 0px 0px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.25);
-  mix-blend-mode: normal;
-  border-left: 0;
-
-  color: var(--color-white);
-}
-
-.search .form-control.search-text-area::placeholder {
-  color: var(--color-white);
-  opacity: 0.5;
-  font-weight: 300;
-  font-size: 23px;
-  transform: translateY(2px);
-}
-
-.search .form-control.search-text-area:focus {
-  box-shadow: none;
-}
-
-.search .drop-down-title {
-  font-size: 12px;
-  line-height: 15px;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.search .dropdown .btn {
-  width: 100%;
-  border-radius: 3px 3px 0px 0px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.25);
-  mix-blend-mode: normal;
-}
-
-.search .dropdown .btn span {
-  color: var(--color-white);
-  font-weight: 300;
-  font-size: 23px;
-}
-
-.search .dropdown .btn:after {
-  color: var(--color-white);
-  right: 12px;
-  top: 50%;
-  position: absolute;
-}
-
-.search .btn.focus,
-.btn:focus {
+.section-filters input,
+.section-filters input:focus {
   box-shadow: none !important;
+  background: transparent;
+  font-size: 1.4rem;
 }
 
-.search .dropdown-menu {
-  width: 100%;
+.section-filters input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
 }
 
-.search .dropdown-menu .dropdown-item:hover {
-  color: var(--main-color);
-  background-color: white;
+.filters {
+  background: rgba(255, 255, 255, 0.25) !important;
+  font-size: 2.3rem !important;
+  border-radius: 4px 4px 0 0 !important;
 }
 
-@media screen and (max-width: 575px) {
-  .search .box1 .input-group {
-    margin-bottom: 0;
-  }
-
-  .search .box2 {
-    margin-top: 19px;
-    margin-bottom: 19px;
-  }
+.dropdown button:after {
+  float: right;
+  margin-top: 1.4rem;
 }
 
-/* RESULTS SECTION  */
-.results .section-title {
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 29px;
-}
-
-.results .container {
-  margin-top: 47px;
-  margin-bottom: 37px;
-}
-
-.row [class*="col-"] {
-  padding-top: 18px;
-  padding-bottom: 18px;
+.dropdown-item:hover,
+.dropdown-item:active {
+  color: #C271FF !important;
+  background: #FFFFFF !important;
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
